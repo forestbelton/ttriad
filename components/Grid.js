@@ -6,7 +6,7 @@ require('less/Grid.less');
 var Grid = React.createClass({
     propTypes: {
         cards: React.PropTypes.array.isRequired,
-        cardLenEQ9: function(props) {
+        cardsLenEQ9: function(props) {
             if(props.cards.length != 9) {
                 return new Error('Must have exactly 9 cards');
             }
