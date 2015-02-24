@@ -1,0 +1,17 @@
+{
+  "name": "ttriad",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Forest Belton <forest@homolo.gy>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "~1.6.0",
+    "babel-core": "~4.4.5",
+    "babel-loader": "~4.0.0",
+    "react": "~0.12.2"
+  }
+}
