@@ -14,7 +14,7 @@ var Deck = React.createClass({
     },
 
     _renderCard: function(cardData) {
-        return <Card key={cardData.name} {...cardData} />;
+        return <Card key={cardData.name.en} {...cardData} />;
     },
 
     render: function() {

@@ -3,12 +3,7 @@ var React = require('react/addons');
 require('less/Card.less');
 var Card = React.createClass({
     propTypes: {
-        name:   React.PropTypes.string.isRequired,
-        top:    React.PropTypes.number.isRequired,
-        right:  React.PropTypes.number.isRequired,
-        bottom: React.PropTypes.number.isRequired,
-        left:   React.PropTypes.number.isRequired,
-        color:  React.PropTypes.oneOf(['red', 'blue'])
+        color: React.PropTypes.oneOf(['red', 'blue'])
     },
 
     render: function() {
@@ -20,11 +15,11 @@ var Card = React.createClass({
 
         return (
             <div className={cardClasses}>
-                <div className="card-name">{this.props.name}</div>
-                <div className="card-top">{this.props.top}</div>
-                <div className="card-left">{this.props.left}</div>
-                <div className="card-right">{this.props.right}</div>
-                <div className="card-bottom">{this.props.bottom}</div>
+                <div className="card-name">{this.props.name.en}</div>
+                <div className="card-top">{this.props.values.top}</div>
+                <div className="card-left">{this.props.values.left}</div>
+                <div className="card-right">{this.props.values.right}</div>
+                <div className="card-bottom">{this.props.values.bottom}</div>
             </div>
         );
     }

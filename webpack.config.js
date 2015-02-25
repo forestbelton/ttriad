@@ -6,7 +6,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            less: __dirname + '/less'
+            less: __dirname + '/less',
+            data: __dirname + '/data'
         }
     },
     module: {

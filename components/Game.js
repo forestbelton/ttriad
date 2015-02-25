@@ -4,11 +4,21 @@ var React = require('react'),
 
 require('less/Game.less');
 var Game = React.createClass({
+    _mockDeck: function(cards) {
+        var out = [];
+
+        for(var i = 0; i < 5; ++i) {
+            const idx = Math.floor(Math.random() * (cards.length - 1));
+            out.push(cards[idx]);
+        }
+
+        return out;
+    },
+
     render: function() {
-        var allCards = require('../cards'),
-            gridCards = allCards.slice(0, 8).concat(null),
-            deck1 = allCards.slice(0, 5),
-            deck2 = allCards.slice(4, 9);
+        var allCards = require('data/cards'),
+            deck1 = this._mockDeck(allCards),
+            deck2 = this._mockDeck(allCards);
 
         return (
             <div className="game">
