@@ -21,7 +21,12 @@ var GridStore = createStore({
                 throw new Error('Trying to set a grid card out of bounds');
             }
 
-            this._cards[payload.y * 3 + payload.x] = payload.card;
+            const idx = payload.y * 3 + payload.x;
+            if(this._cards[idx] != null) {
+                throw new Error('Trying to play on top of another card');
+            }
+
+            this._cards[idx] = payload.card;
             this.emitChange();
         }
     }
