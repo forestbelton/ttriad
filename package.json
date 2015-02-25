@@ -18,5 +18,9 @@
     "react": "~0.12.2",
     "style-loader": "^0.8.3",
     "webpack": "~1.6.0"
+  },
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "mocha": "^2.1.0"
   }
 }
