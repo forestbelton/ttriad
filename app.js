@@ -2,9 +2,11 @@ var React = require('react'),
     Dispatcher = require('dispatchr')(),
     Game = require('./components/Game');
 
-var GridStore = require('./stores/GridStore');
+var GameStore = require('./stores/GameStore'),
+    GridStore = require('./stores/GridStore');
 
 [
+    GameStore,
     GridStore
 ].forEach(function(store) {
     Dispatcher.registerStore(store);
