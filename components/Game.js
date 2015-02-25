@@ -14,7 +14,7 @@ var Game = React.createClass({
             <div className="game">
                 <div className="game-header">Triple Triad</div>
                 <Deck name="Red" cards={deck1} />
-                <Grid cards={gridCards} />
+                <Grid />
                 <Deck name="Blue" cards={deck2} />
             </div>
         );

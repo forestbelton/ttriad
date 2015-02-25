@@ -4,17 +4,38 @@ var React = require('react'),
 
 require('less/Grid.less');
 var Grid = React.createClass({
-    propTypes: {
-        cards: React.PropTypes.array.isRequired,
-        cardsLenEQ9: function(props) {
-            if(props.cards.length != 9) {
-                return new Error('Must have exactly 9 cards');
-            }
-        }
+    contextTypes: {
+        dispatcher: React.PropTypes.object.isRequired
+    },
+
+    getInitialState: function() {
+        return {
+            cards: this._getCards()
+        };
+    },
+
+    _getCards: function() {
+        return this.context.dispatcher.getStore('GridStore').getCards();
+    },
+
+    _onGridChange: function() {
+        this.setState({
+            cards: this._getCards()
+        });
+    },
+
+    componentDidMount: function() {
+        this.context.dispatcher.getStore('GridStore')
+            .addChangeListener(this._onGridChange);
+    },
+
+    componentWillUnmount: function() {
+        this.context.dispatcher.getStore('GridStore')
+            .removeChangeListener(this._onGridChange);
     },
 
     renderCards: function() {
-        return this.props.cards.map((card, i) => card
+        return this.state.cards.map((card, i) => card
                                     ? <Card key={i + card.name} {...card} />
                                     : <EmptyCard key={i} />);
     },
