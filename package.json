@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive"
+    "test": "./node_modules/mocha/bin/mocha --recursive --compilers js:babel/register",
+    "test-watch": "./node_modules/mocha/bin/mocha --recursive --compilers js:babel/register --watch"
   },
   "author": "Forest Belton <forest@homolo.gy>",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "webpack": "~1.6.0"
   },
   "devDependencies": {
+    "babel": "^4.5.4",
     "chai": "^2.1.0",
     "mocha": "^2.1.0"
   }
