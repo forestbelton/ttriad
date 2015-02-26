@@ -1,3 +1,5 @@
+require('babel/polyfill');
+
 var React = require('react'),
     Dispatcher = require('dispatchr')(),
     Game = require('./components/Game');

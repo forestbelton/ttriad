@@ -12,6 +12,7 @@
   "dependencies": {
     "babel-core": "~4.4.5",
     "babel-loader": "~4.0.0",
+    "babel-runtime": "^4.5.5",
     "css-loader": "^0.9.1",
     "dispatchr": "^0.2.12",
     "less": "^2.4.0",
