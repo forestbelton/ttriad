@@ -36,8 +36,8 @@ var Grid = React.createClass({
 
     renderCards: function() {
         return this.state.cards.map((card, i) => card
-                                    ? <Card key={i + card.name} {...card} />
-                                    : <EmptyCard key={i} />);
+                                    ? <Card key={i + card.name} position={i} {...card} />
+                                    : <EmptyCard key={i} position={i} />);
     },
 
     render: function() {
