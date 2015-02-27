@@ -5,11 +5,13 @@ var React = require('react'),
     Game = require('./components/Game');
 
 var GameStore = require('./stores/GameStore'),
-    GridStore = require('./stores/GridStore');
+    GridStore = require('./stores/GridStore'),
+    DeckStore = require('./stores/DeckStore');
 
 [
     GameStore,
-    GridStore
+    GridStore,
+    DeckStore
 ].forEach(function(store) {
     Dispatcher.registerStore(store);
 });

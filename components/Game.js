@@ -4,28 +4,41 @@ var React = require('react'),
 
 require('less/Game.less');
 var Game = React.createClass({
-    _mockDeck: function(cards) {
-        var out = [];
+    contextTypes: {
+        dispatcher: React.PropTypes.object.isRequired
+    },
 
-        for(var i = 0; i < 5; ++i) {
-            const idx = Math.floor(Math.random() * (cards.length - 1));
-            out.push(cards[idx]);
-        }
+    getInitialState: function() {
+        return this._getGame();
+    },
 
-        return out;
+    _getGame: function() {
+        return {
+            decks: this.context.dispatcher.getStore('DeckStore').getDecks()
+        };
+    },
+
+    _onDeckChange: function() {
+        this.setState(this._getGame());
+    },
+
+    componentDidMount: function() {
+        this.context.dispatcher.getStore('DeckStore')
+            .addChangeListener(this._onDeckChange);
+    },
+
+    componentWillUnmount: function() {
+        this.context.dispatcher.getStore('DeckStore')
+            .removeChangeListener(this._onDeckChange);
     },
 
     render: function() {
-        var allCards = require('data/cards'),
-            deck1 = this._mockDeck(allCards),
-            deck2 = this._mockDeck(allCards);
-
         return (
             <div className="game">
                 <div className="game-header">Triple Triad</div>
-                <Deck name="Red" cards={deck1} />
+                <Deck name="Red" color="red" cards={this.state.decks[0]} />
                 <Grid />
-                <Deck name="Blue" cards={deck2} />
+                <Deck name="Blue" color="blue" cards={this.state.decks[1]} />
             </div>
         );
     }
