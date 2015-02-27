@@ -35,7 +35,7 @@ var DeckStore = createStore({
     handlers: {
         'play-card': function(payload) {
             var removeCard = function(card) {
-                return card.name.en != payload.card.name.en;
+                return card.id != payload.card.id;
             };
             
             if(payload.card.color == 'red') {

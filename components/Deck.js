@@ -15,7 +15,7 @@ var Deck = React.createClass({
     },
 
     _renderCard: function(cardData) {
-        return <Card key={cardData.name.en} color={this.props.color} {...cardData} />;
+        return <Card key={cardData.name.en} color={this.props.color} inDeck={true} {...cardData} />;
     },
 
     render: function() {
