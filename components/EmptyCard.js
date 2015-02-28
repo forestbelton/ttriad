@@ -20,6 +20,7 @@ var EmptyCard = React.createClass({
       ev.preventDefault();
 
       var card = JSON.parse(ev.dataTransfer.getData("card"));
+      card.inDeck = false;
 
       DeckActions.playCard(this.context.dispatcher, card, this.props.position);
       GridActions.gridSet(this.context.dispatcher, card, this.props.position);
