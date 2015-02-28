@@ -15,7 +15,8 @@ var Card = React.createClass({
         var cardClasses = React.addons.classSet({
             'card':      true,
             'red-card':  this.props.color === 'red',
-            'blue-card': this.props.color === 'blue'
+            'blue-card': this.props.color === 'blue',
+            'deck-card': this.props.inDeck
         });
 
         var cardImage = "data/" + ("000" + this.props.id).slice(-3) + ".png";
